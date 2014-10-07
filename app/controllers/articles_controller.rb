@@ -34,6 +34,8 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.save 
     
+    flash.notice = "Article '#{@article.title}' was created."
+    
     # Instead of creating a new view template, we'll simply redirect to the show page for this article 
     # after it has been successfully created. 
     redirect_to article_path(@article)
@@ -43,6 +45,26 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
     redirect_to articles_path
+    flash.notice = "Article '#{@article.title}' was deleted."
+  end
+  
+  def edit
+    # Obviously, the controller will need to know which article to include in the view, so we look it up
+    # based on its :id and then save that object into an instance variable @article.
+    @article = Article.find(params[:id])
+  end
+  
+  def update
+    # Think of this as very similar to the create() action, except we don't assign a new :id to an object. We
+    # instead look up an old :id row and change the contents using the article_params() from the ArticlesHelper class.
+    @article = Article.find(params[:id])
+    @article.update(article_params) # no need to .save() the changes
+    
+    # We also need to update the show.html.erb view to include the flash notification...
+    # NO WE DON'T. Rookie mistake. Add it to the application layout so that it shows up sitewide.
+    flash.notice = "Article '#{@article.title}' was updated."
+    
+    redirect_to article_path(@article)
   end
   
 end
