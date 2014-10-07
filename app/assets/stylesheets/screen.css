@@ -283,11 +283,29 @@ h1:after {
 	z-index: 1;
 }
 
-h2,h3,h4 {
+h2 {
 	color: #2d4159;
-	font-size: 1.3em;
+	font-size: 1.8em;
 	line-height: 1.5em;
 	margin: .2em 0 .5em;
+}
+
+h3{
+	color: #2d4159;
+	font-size: 1.4em;
+	line-height: 1.5em;
+	margin: .2em 0 .5em;
+}
+
+h4 {
+	color: #2d4159;
+	font-size: 1em;
+	line-height: 1.5em;
+	margin: .2em 0 .5em;
+}
+
+.comment_timestamp{
+	font-size: 0.7em;
 }
 
 .comment {
@@ -297,6 +315,7 @@ h2,h3,h4 {
 	padding: 1em 0;
 	border-bottom: 1px dashed #ddd;
 	color: #6c7c9a;
+	padding-left: 10px;
 }
 
 .comment p {
