@@ -1,5 +1,15 @@
 class AuthorsController < ApplicationController
   before_action :set_author, only: [:show, :edit, :update, :destroy]
+  before_action :zero_authors_or_authenticated, only: [:new, :create]
+  before_filter :require_login, except: [:new, :create]
+  
+  # Only allow a new user to register by A) being the first registrant to the app, or B) by a registered user.
+  def zero_authors_or_authenticated
+    unless Author.count == 0 || current_user
+      redirect_to root_path
+      return false
+    end
+  end
 
   # GET /authors
   # GET /authors.json

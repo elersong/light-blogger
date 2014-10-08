@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
+  before_filter :require_login, only: [:new, :create, :edit, :update, :destroy]
   
   def index
     # We're going to need the @articles var to hold an array of all articles because the index
@@ -24,7 +25,7 @@ class ArticlesController < ApplicationController
     # model calls. All information will be pulled from the browser and inserted into the database.
     # However, the form_for(model_name) needs a model_name as an instance variable, and if we don't
     # initialize that variable here, it will raise an error.
-    @article = Article.new
+      @article = Article.new
   end
   
   def create

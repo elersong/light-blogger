@@ -6,5 +6,7 @@
 	<% end %>
 </ul>
 <br/>
-<!-- use link_to "click text", object_path(@object), method: :delete, data: {confirm: "You sure?"}  -->
-<%= link_to "Delete This Tag", tag_path(@tag), method: :delete, data: {confirm: "DELETE: Are you sure?"} %>
+<% if logged_in? %>
+	<!-- use link_to "click text", object_path(@object), method: :delete, data: {confirm: "You sure?"}  -->
+	<%= link_to "Delete This Tag", tag_path(@tag), method: :delete, data: {confirm: "DELETE: Are you sure?"} %>
+<% end %>
