@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
     # into a route url, which means it can be accessed by the params method. We can use that to query
     # the Article table, and .find() the correct @article to be displayed by the view.
     @article = Article.find(params[:id])
-    
+   
     @comment = Comment.new
     @comment.article_id = @article.id
  
