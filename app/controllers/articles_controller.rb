@@ -37,6 +37,7 @@ class ArticlesController < ApplicationController
     # Now, we use the strong parameters helper method we wrote in articles_helper.rb to sanitize to
     # beef up security for data from form submission. 
     @article = Article.new(article_params)
+    @article.author = current_user
     @article.save 
     
     flash.notice = "Article '#{@article.title}' was created."
@@ -63,6 +64,9 @@ class ArticlesController < ApplicationController
     # Think of this as very similar to the create() action, except we don't assign a new :id to an object. We
     # instead look up an old :id row and change the contents using the article_params() from the ArticlesHelper class.
     @article = Article.find(params[:id])
+    unless @article.author
+      @article.author = current_user
+    end
     @article.update(article_params) # no need to .save() the changes
     
     # We also need to update the show.html.erb view to include the flash notification...
