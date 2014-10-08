@@ -236,6 +236,13 @@ p.flash {
 	border-top: 0;
 }
 
+ul.nav li {
+	display: inline;
+	float: right;
+	padding: 5px;
+	margin-top: -25px;
+}
+
 p.flash:empty {
 	height: 0px;
 	overflow: hidden;
