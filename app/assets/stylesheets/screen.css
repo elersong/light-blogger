@@ -32,6 +32,16 @@ caption,th,td {
 	text-align: left;
 	font-weight: normal;
 	vertical-align: middle;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+th {
+	border-bottom: 1px solid black;
+}
+
+tr:nth-child(even) {
+	background-color: #dce9f7;
 }
 
 q,blockquote {

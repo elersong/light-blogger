@@ -43,3 +43,6 @@ gem 'pry'
 
 # Use Paperclip for file upload
 gem 'paperclip'
+
+# Use Sorcery for authentication
+gem 'sorcery'
