@@ -38,4 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use Pry for step-thru debugging
 gem 'pry'
+
+# Use Paperclip for file upload
+gem 'paperclip'
