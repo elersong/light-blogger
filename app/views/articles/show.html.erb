@@ -10,7 +10,7 @@
 	<p><%= image_tag @article.image.url(:medium) %></p><br />
 <% end %>
 
-<p><%= @article.body %></p><br>
+<p><%= simple_format(@article.body) %></p><br>
 
 <h3> Comments (<%= @article.comments.count %>) </h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
